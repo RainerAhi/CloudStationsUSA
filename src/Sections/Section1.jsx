@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import CanvasContainer from "../CanvasContainer";
-import { Section6 } from "./Section6";
 
 export const Section1 = () => {
   

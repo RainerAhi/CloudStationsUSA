@@ -208,7 +208,7 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('./vend.glb')
   return (
     <>
-    <OrbitControls target={ [ -5, 0, 0 ] } ref={controls} minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 1} enableZoom={ false } enableRotate={ true } enablePan={ false } />
+    <OrbitControls target={ [ -5, 0, 0 ] } ref={controls} minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 1} enableZoom={ false } enableRotate={ false } enablePan={ false } />
     <group ref={icon} {...props} dispose={null}>
       <mesh>
         <boxGeometry args={ [ 6, 10, 5 ] } />
