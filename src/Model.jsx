@@ -61,23 +61,25 @@ export default function Model(props) {
       let { isMobile, isDesktop } = context.conditions;
 
 
-      // FIRST TO SECOND
+      // FIRST
 
 
       tl
-      .to(icon.current.rotation, {
-        y: Math.PI * 2,
+
+      .to(".one-content", {
+        opacity: 0,
         scrollTrigger: {
           trigger: ".two",
-          start: "top bottom",
-          end: "bottom top",
+          start: "top 80%", // Adjust start to start later
+          end: "bottom 100%",
           scrub: true,
           immediateRender: false,
         },
       })
 
-      .to(controls.current.target, {
-        x: 4,
+
+      .to(icon.current.rotation, {
+        y: Math.PI * 1,
         scrollTrigger: {
           trigger: ".two",
           start: "top bottom",
@@ -87,16 +89,114 @@ export default function Model(props) {
         },
       })
 
-      // .to(icon.current.rotation, {
-      //   y: Math.PI * 4,
-      //   scrollTrigger: {
-      //     trigger: ".three",
-      //     start: "top bottom",
-      //     end: "bottom top",
-      //     scrub: true,
-      //     immediateRender: false,
-      //   },
-      // })
+      .to(controls.current.target, {
+        x: 3,
+        scrollTrigger: {
+          trigger: ".two",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      // SECOND
+
+      .to(icon.current.rotation, {
+        y: Math.PI * 2,
+        scrollTrigger: {
+          trigger: ".three",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(controls.current.target, {
+        x: -3,
+        scrollTrigger: {
+          trigger: ".three",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(camera.position, {
+        z: 11,
+        y: 2,
+        x: 5,
+        scrollTrigger: {
+          trigger: ".three",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      // FOUR
+
+      .to(icon.current.rotation, {
+        y: Math.PI * 3,
+        scrollTrigger: {
+          trigger: ".four",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(controls.current.target, {
+        x: 3,
+        scrollTrigger: {
+          trigger: ".four",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(camera.position, {
+        z: 15,
+        y: 0,
+        x: 0,
+        scrollTrigger: {
+          trigger: ".four",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      // FIVE
+
+      .to(icon.current.rotation, {
+        y: Math.PI * 4,
+        scrollTrigger: {
+          trigger: ".five",
+          start: "top bottom",
+          end: "btop top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(controls.current.target, {
+        x: -3,
+        scrollTrigger: {
+          trigger: ".five",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
 
       
 
@@ -108,38 +208,12 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('./vend.glb')
   return (
     <>
-    <OrbitControls target={ [ -4, 0, 0 ] } ref={controls} minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 1} enableZoom={ false } enableRotate={ true } enablePan={ false } />
+    <OrbitControls target={ [ -5, 0, 0 ] } ref={controls} minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 1} enableZoom={ false } enableRotate={ true } enablePan={ false } />
     <group ref={icon} {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.CubeSlice003_Material001_0.geometry}
-        material={materials['Material.002']}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cylinder007_elements_cena001_0.geometry}
-        material={materials['elements_cena.001']}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube036_glass_0.geometry}
-        material={materials.glass}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cylinder004_elements_cena_0.geometry}
-        material={materials.elements_cena}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cylinder018_Material003_0.geometry}
-        material={materials['Material.003']}
-      />
+      <mesh>
+        <boxGeometry args={ [ 6, 10, 5 ] } />
+        <meshStandardMaterial color={ "#ccc" } />
+      </mesh>
     </group>
     </>
   )

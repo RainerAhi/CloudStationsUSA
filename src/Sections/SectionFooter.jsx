@@ -9,26 +9,12 @@ export const SectionFooter = () => {
     return (
         <section className="footer" >
             <div className="footer-content" >
-                <div className="footer-column footer-column-main" >
-                    <h1 className="smallest-headline footer-title white" >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/roadmap.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/litepaper.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/toke.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/tech.pdf")} >Lorem Ipsum</h1>
-                </div>
-                <div className="footer-column footer-column-main" >
-                    <h1 className="smallest-headline footer-title white" >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/roadmap.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/litepaper.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/toke.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/tech.pdf")} >Lorem Ipsum</h1>
-                </div>
-                <div className="footer-column footer-column-main" >
-                    <h1 className="smallest-headline footer-title white" >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/roadmap.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/litepaper.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/toke.pdf")} >Lorem Ipsum</h1>
-                    <h1 className="small-description footer-text footer-description grey" onClick={() => handleClick("/tech.pdf")} >Lorem Ipsum</h1>
+                <h1 className="small-headline white" >Follow Us On Social Media</h1>
+                <div className="social-media-box" >
+                    <i className="fa-brands fa-twitter" onClick={() => handleClick('https://www.instagram.com/cloudstationsusa/')} ></i>
+                    <i className="fa-brands fa-linkedin" onClick={() => handleClick('https://www.instagram.com/cloudstationsusa/')} ></i>
+                    <i className="fa-brands fa-instagram" onClick={() => handleClick('https://www.instagram.com/cloudstationsusa/')} ></i>
+                    <i className="fa-brands fa-discord" onClick={() => handleClick('https://www.instagram.com/cloudstationsusa/')} ></i>
                 </div>
             </div>
         </section>

@@ -34,10 +34,11 @@ export default function Experience() {
       <SoftShadows intensity={ 20 } />
       <Suspense fallback >
         <Float rotationIntensity={ 0.5 } floatIntensity={ 0.5 } speed={ 2 } >
-          <Model position={ [ 0, isMobile ? -0.5 : 0, 0 ] } scale={ 0.08 } />
+          <Model  scale={ 0.5 } />
         </Float>
       </Suspense>
       <ambientLight />  
+      <Environment preset='apartment' />
       </>
   )
 }
