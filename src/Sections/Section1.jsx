@@ -12,6 +12,9 @@ export const Section1 = () => {
   const [isVisibleSeven, setIsVisibleSeven] = useState(false);
   const [isVisibleEight, setIsVisibleEight] = useState(false);
   const [isVisibleNine, setIsVisibleNine] = useState(false);
+  const [isVisibleTen, setIsVisibleTen] = useState(false);
+  const [isVisibleEleven, setIsVisibleEleven] = useState(false);
+  const [isVisibleTwelve, setIsVisibleTwelve] = useState(false);
 
   const oneRef = useRef(null);
   const twoRef = useRef(null);
@@ -22,6 +25,9 @@ export const Section1 = () => {
   const sevenRef = useRef(null);
   const eightRef = useRef(null);
   const nineRef = useRef(null);
+  const tenRef = useRef(null);
+  const elevenRef = useRef(null);
+  const twelveRef = useRef(null);
 
   useEffect(() => {
 
@@ -61,6 +67,18 @@ export const Section1 = () => {
       setIsVisibleNine(entry.isIntersecting);
     });
 
+    const observerTen = new IntersectionObserver(([entry]) => {
+      setIsVisibleTen(entry.isIntersecting);
+    });
+
+    const observerEleven = new IntersectionObserver(([entry]) => {
+      setIsVisibleEleven(entry.isIntersecting);
+    });
+
+    const observerTwelve = new IntersectionObserver(([entry]) => {
+      setIsVisibleTwelve(entry.isIntersecting);
+    });
+
     observerOne.observe(oneRef.current);
     observerTwo.observe(twoRef.current);
     observerThree.observe(threeRef.current);
@@ -70,6 +88,9 @@ export const Section1 = () => {
     observerSeven.observe(sevenRef.current);
     observerEight.observe(eightRef.current);
     observerNine.observe(nineRef.current);
+    observerTen.observe(tenRef.current);
+    observerEleven.observe(elevenRef.current);
+    observerTwelve.observe(twelveRef.current);
 
     return () => {
       observerOne.unobserve(oneRef.current);
@@ -81,6 +102,9 @@ export const Section1 = () => {
       observerSeven.unobserve(sevenRef.current);
       observerEight.unobserve(eightRef.current);
       observerNine.unobserve(nineRef.current);
+      observerTen.unobserve(tenRef.current);
+      observerEleven.unobserve(elevenRef.current);
+      observerTwelve.unobserve(twelveRef.current);
     };
   }, []);
 
@@ -101,7 +125,7 @@ export const Section1 = () => {
               <h1 className="small-headline content-box-text-top black" >Powering <span className="black" >Internationally</span></h1>
               <h1 className="small-description content-box-text-bottom" >Join the league-  Cycle some cities were working with (Gouna Egypt, Hurghada Egypt, Sahel Egypt, Cairo Egypt, Richmond USA, Morgantown USA, Starkville USA, Tampa USA Prauge Czechia,)</h1>
             </div>
-            <div className="blue-border" />
+            <div className={`blue-border ${isVisibleTen ? 'visible' : ''}`} ref={tenRef}/>  
             <div className={`two-content-box ${isVisibleTwo ? 'visible' : ''}`} ref={twoRef}>
               <h1 className="small-headline content-box-text-top black" >Products We Dispense</h1>
               <h1 className="small-description content-box-text-bottom" >Tailored to perfection, driven by market research, to meet your venue's every need.</h1>
@@ -116,7 +140,7 @@ export const Section1 = () => {
               <h1 className="small-headline content-box-text-top black" >Small and Large Options</h1>
               <h1 className="small-description content-box-text-bottom" >Choose from our compact 72-unit machine or our expansive 400-unit powerhouse. The small machine hangs effortlessly, taking up zero space, yet packed with state-of-the-art features including a 3-foot touchscreen and seamless payment options.</h1>
             </div>
-            <div className="blue-border" />
+            <div className={`blue-border ${isVisibleEleven ? 'visible' : ''}`} ref={elevenRef}/>  
             <div className={`two-content-box ${isVisibleFour ? 'visible' : ''}`} ref={fourRef}>
               <h1 className="small-headline content-box-text-top black" >Seamless Installation & Maintenance</h1>
               <h1 className="small-description content-box-text-bottom" >Effortless setup backed by dedicated local support ensures uninterrupted service. We handle everything from restocking to permits, licensing, and sales tax remittance.</h1>
@@ -144,7 +168,7 @@ export const Section1 = () => {
               <h1 className="small-headline content-box-text-top black" >Attractive Margins</h1>
               <h1 className="small-description content-box-text-bottom" >Enjoy profit margins ranging from $5 to $25 per product variant.</h1>
             </div>
-            <div className="blue-border" />
+            <div className={`blue-border ${isVisibleTwelve ? 'visible' : ''}`} ref={twelveRef}/>  
             <div className={`two-content-box ${isVisibleSix ? 'visible' : ''}`} ref={sixRef}>
               <h1 className="small-headline content-box-text-top black" >30-Day Trial</h1>
               <h1 className="small-description content-box-text-bottom" >Try Cloud Station risk-free. If you're not satisfied, we'll remove it the same day, no questions asked.</h1>
@@ -162,7 +186,7 @@ export const Section1 = () => {
           </div>
         </section>
 
-        <section className="form" >
+        <section className="form-two" >
           <div className="mobile-scroll" />
           <div className="form-content" >
             <form className={`form-form ${isVisibleNine ? 'visible' : ''}`} ref={nineRef} >  

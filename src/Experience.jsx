@@ -34,11 +34,11 @@ export default function Experience() {
       <SoftShadows intensity={ 20 } />
       <Suspense fallback >
         <Float rotationIntensity={ 0.5 } floatIntensity={ 0.5 } speed={ 2 } >
-          <Model  scale={ 0.5 } />
+          <Model rotation={ [ 0, Math.PI * -0.1, 0 ] } scale={ isMobile ? 4 : 5 } />
         </Float>
       </Suspense>
       <ambientLight />  
-      <Environment preset='apartment' />
+      <Environment preset='sunset' />
       </>
   )
 }

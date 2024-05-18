@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import gsap from 'gsap'
 import { useThree } from "@react-three/fiber";
@@ -6,6 +6,27 @@ import { useLayoutEffect } from "react";
 import SplitType from 'split-type'
 
 export default function Model(props) {
+
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileDevice(window.innerWidth < 767);
+    };
+
+    // Add event listener to listen for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Initial check for mobile device on component mount
+    handleResize();
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  console.log(isMobileDevice)
 
   const { camera, scene } = useThree()
 
@@ -26,9 +47,20 @@ export default function Model(props) {
     });
   };
 
+  const cameraLoadsMobile = () => {
+    gsap.to(controls.current.target, {
+      duration: 5,
+      y: 2,
+      ease: 'power3.out',
+    });
+  };
+
   useEffect(() => {
-      cameraLoads();
-  }, []);
+    cameraLoads();
+    if (isMobileDevice) {
+      cameraLoadsMobile();
+    }
+  }, [isMobileDevice]);
 
   useLayoutEffect(() => {
 
@@ -66,6 +98,7 @@ export default function Model(props) {
 
       tl
 
+
       .to(".one-content", {
         opacity: 0,
         scrollTrigger: {
@@ -79,7 +112,7 @@ export default function Model(props) {
 
 
       .to(icon.current.rotation, {
-        y: Math.PI * 1,
+        y: isMobile ? Math.PI * 1 : Math.PI * 2,
         scrollTrigger: {
           trigger: ".two",
           start: "top bottom",
@@ -90,7 +123,7 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: 3,
+        x: isMobile ? 0 : 3,
         scrollTrigger: {
           trigger: ".two",
           start: "top bottom",
@@ -102,8 +135,19 @@ export default function Model(props) {
 
       // SECOND
 
+      .to(controls.current.target, {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".two",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
       .to(icon.current.rotation, {
-        y: Math.PI * 2,
+        y: isMobile ? Math.PI * 2 : Math.PI * 3.8,
         scrollTrigger: {
           trigger: ".three",
           start: "top bottom",
@@ -114,7 +158,7 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: -3,
+        x: isMobile ? 0 : -3,
         scrollTrigger: {
           trigger: ".three",
           start: "top bottom",
@@ -125,9 +169,9 @@ export default function Model(props) {
       })
 
       .to(camera.position, {
-        z: 11,
-        y: 2,
-        x: 5,
+        x: 0,
+        y: -5,
+        z: 15,
         scrollTrigger: {
           trigger: ".three",
           start: "top bottom",
@@ -137,10 +181,48 @@ export default function Model(props) {
         },
       })
 
-      // FOUR
+      // FORM
 
       .to(icon.current.rotation, {
-        y: Math.PI * 3,
+        y: isMobile ? Math.PI * 3 : Math.PI * 5,
+        scrollTrigger: {
+          trigger: ".form",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(controls.current.target, {
+        x: 0,
+        scrollTrigger: {
+          trigger: ".form",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(camera.position, {
+        z: 15,
+        y: 0,
+        x: 0,
+        scrollTrigger: {
+          trigger: ".form",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+
+      // THIRD
+
+      .to(icon.current.rotation, {
+        y: isMobile ? Math.PI * 4 : Math.PI * 6,
         scrollTrigger: {
           trigger: ".four",
           start: "top bottom",
@@ -151,7 +233,7 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: 3,
+        x: isMobile ? 0 : 3,
         scrollTrigger: {
           trigger: ".four",
           start: "top bottom",
@@ -174,10 +256,10 @@ export default function Model(props) {
         },
       })
 
-      // FIVE
+      // FOUR
 
       .to(icon.current.rotation, {
-        y: Math.PI * 4,
+        y: isMobile ? Math.PI * 5 : Math.PI * 8,
         scrollTrigger: {
           trigger: ".five",
           start: "top bottom",
@@ -188,9 +270,59 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: -3,
+        x: isMobile ? 0 : -3,
         scrollTrigger: {
           trigger: ".five",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(camera.position, {
+        x: 0,
+        y: 5,
+        z: 15,
+        scrollTrigger: {
+          trigger: ".five",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      // FORM TWO
+
+      .to(icon.current.rotation, {
+        y: isMobile ? Math.PI * 6 : Math.PI * 9,
+        scrollTrigger: {
+          trigger: ".form-two",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(controls.current.target, {
+        x: 0,
+        scrollTrigger: {
+          trigger: ".form-two",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(camera.position, {
+        z: 15,
+        y: 0,
+        x: 0,
+        scrollTrigger: {
+          trigger: ".form-two",
           start: "top bottom",
           end: "top top",
           scrub: true,
@@ -205,18 +337,44 @@ export default function Model(props) {
 
   }, [])
 
-  const { nodes, materials } = useGLTF('./vend.glb')
+  const { nodes, materials } = useGLTF('./machine.glb')
   return (
     <>
-    <OrbitControls target={ [ -5, 0, 0 ] } ref={controls} minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 1} enableZoom={ false } enableRotate={ false } enablePan={ false } />
+    <OrbitControls target={ [ isMobileDevice ? 0 : -4, 0, 0 ] } ref={controls} minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 1} enableZoom={ false } enableRotate={ false } enablePan={ false } />
     <group ref={icon} {...props} dispose={null}>
-      <mesh>
-        <boxGeometry args={ [ 6, 10, 5 ] } />
-        <meshStandardMaterial color={ "#ccc" } />
-      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes['3D002'].geometry}
+        material={materials['Anodized Aluminum Rough Black #1']}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes['3D003'].geometry}
+        material={materials['Anodized Aluminum Polished Black #1']}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes['3D005'].geometry}
+        material={materials['Anodized Aluminum Rough Black #1']}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes['3D007'].geometry}
+        material={materials['Anodized Aluminum Rough Black #1']}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes['3D009'].geometry}
+        material={materials['Anodized Aluminum Rough Black #1']}
+      />
     </group>
     </>
   )
 }
 
-useGLTF.preload('./vend.glb')
+useGLTF.preload('./machine.glb')
