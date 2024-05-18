@@ -298,7 +298,7 @@ html.lenis {
   display: flex;
   flex-direction: column;
   z-index: 2;
-  align-self: flex-end;
+  align-self: flex-start;
   text-align: left;
   justify-content: center;
   margin-top: 20vh;
@@ -364,7 +364,7 @@ html.lenis {
   flex-direction: column;
   justify-content: center;
   z-index: 2;
-  align-self: flex-start;
+  align-self: flex-end;
   text-align: left;
   margin-top: 7.5vh;
   z-index: 0;
@@ -388,7 +388,7 @@ html.lenis {
   flex-direction: column;
   justify-content: center;
   z-index: 2;
-  align-self: flex-end;
+  align-self: flex-start;
   text-align: left;
   margin-top: 7.5vh;
   z-index: 0;
@@ -412,7 +412,7 @@ html.lenis {
   flex-direction: column;
   justify-content: center;
   z-index: 2;
-  align-self: flex-start;
+  align-self: flex-end;
   text-align: left;
   margin-top: 7.5vh;
   z-index: 0;
@@ -854,7 +854,7 @@ textarea {
     color: #111111;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 3.1rem;
     line-height: 100%;
   }
 

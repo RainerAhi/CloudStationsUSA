@@ -112,7 +112,8 @@ export default function Model(props) {
 
 
       .to(icon.current.rotation, {
-        y: isMobile ? Math.PI * 1 : Math.PI * 2,
+        x: Math.PI * 2,
+        y: Math.PI * 2,
         scrollTrigger: {
           trigger: ".two",
           start: "top bottom",
@@ -122,16 +123,16 @@ export default function Model(props) {
         },
       })
 
-      .to(controls.current.target, {
-        x: isMobile ? 0 : 3,
-        scrollTrigger: {
-          trigger: ".two",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-          immediateRender: false,
-        },
-      })
+      // .to(controls.current.target, {
+      //   x: isMobile ? 0 : 3,
+      //   scrollTrigger: {
+      //     trigger: ".two",
+      //     start: "top bottom",
+      //     end: "top top",
+      //     scrub: true,
+      //     immediateRender: false,
+      //   },
+      // })
 
       // SECOND
 
@@ -147,7 +148,7 @@ export default function Model(props) {
       })
 
       .to(icon.current.rotation, {
-        y: isMobile ? Math.PI * 2 : Math.PI * 3.8,
+        y: isMobile ? Math.PI * 4.15 : Math.PI * 4.15,
         scrollTrigger: {
           trigger: ".three",
           start: "top bottom",
@@ -158,7 +159,7 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: isMobile ? 0 : -3,
+        x: isMobile ? 0 : 3,
         scrollTrigger: {
           trigger: ".three",
           start: "top bottom",
@@ -184,7 +185,7 @@ export default function Model(props) {
       // FORM
 
       .to(icon.current.rotation, {
-        y: isMobile ? Math.PI * 3 : Math.PI * 5,
+        y: isMobile ? Math.PI * 5 : Math.PI * 5,
         scrollTrigger: {
           trigger: ".form",
           start: "top bottom",
@@ -222,7 +223,7 @@ export default function Model(props) {
       // THIRD
 
       .to(icon.current.rotation, {
-        y: isMobile ? Math.PI * 4 : Math.PI * 6,
+        y: isMobile ? Math.PI * 6 : Math.PI * 6,
         scrollTrigger: {
           trigger: ".four",
           start: "top bottom",
@@ -233,7 +234,7 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: isMobile ? 0 : 3,
+        x: isMobile ? 0 : -3,
         scrollTrigger: {
           trigger: ".four",
           start: "top bottom",
@@ -259,7 +260,7 @@ export default function Model(props) {
       // FOUR
 
       .to(icon.current.rotation, {
-        y: isMobile ? Math.PI * 5 : Math.PI * 8,
+        y: isMobile ? Math.PI * 7 : Math.PI * 8.15,
         scrollTrigger: {
           trigger: ".five",
           start: "top bottom",
@@ -270,7 +271,7 @@ export default function Model(props) {
       })
 
       .to(controls.current.target, {
-        x: isMobile ? 0 : -3,
+        x: isMobile ? 0 : 3,
         scrollTrigger: {
           trigger: ".five",
           start: "top bottom",
@@ -282,7 +283,7 @@ export default function Model(props) {
 
       .to(camera.position, {
         x: 0,
-        y: 5,
+        y: -5,
         z: 15,
         scrollTrigger: {
           trigger: ".five",
@@ -296,7 +297,7 @@ export default function Model(props) {
       // FORM TWO
 
       .to(icon.current.rotation, {
-        y: isMobile ? Math.PI * 6 : Math.PI * 9,
+        y: isMobile ? Math.PI * 8 : Math.PI * 9,
         scrollTrigger: {
           trigger: ".form-two",
           start: "top bottom",
